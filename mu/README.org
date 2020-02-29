@@ -1,0 +1,38 @@
+#+TITLE:     build
+#+AUTHOR:    damon-kwok
+#+EMAIL:     damon-kwok@outlook.com
+#+DATE:      2020-03-01
+#+OPTIONS: toc:nil creator:nil author:nil email:nil timestamp:nil html-postamble:nil
+#+TODO: TODO DOING DONE
+
+*** 1) install makepkg tool
+pacman -S base-devel msys-devel gcc git
+
+*** 2) clone packages repo
+mkdir -p ~/pkgs
+cd ~/pkgs/
+git clone https://github.com/msys2-unofficial/MSYS2-packages.git --depth=1
+
+*** 3) install *mu* deps
+cd ~/MSYS2-packages/xapian-core
+makepkg -s
+pacman -U xapian-core-1.4.15-1-x86_64.pkg.tar.xz
+
+cd ~/MSYS2-packages/gmime3
+makepkg -s
+pacman -U gmime3-devel-3.2.6-1-x86_64.pkg.tar.xz
+
+*** 4) install *mu*
+cd ~/MSYS2-packages/mu
+
+**** *stable* version (1.2)
+makepkg -sf
+pacman -U mu-1.2-x86_64.pkg.tar.xz
+
+**** beta version (1.3.9 2020-02-29)
+makepkg -sfp PKGBUILD-v1.2
+pacman -U mu-beta-2020-02-29-r4854.17f38dc4-1-x86_64.pkg.tar.xz
+
+**** development version (git master)
+makepkg -sfp PKGBUILD-git
+pacman -U mu-git-2020-02-29-r4854.17f38dc4-1-x86_64.pkg.tar.xz

@@ -1,7 +1,9 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
-pkgname=mu
-pkgver=1.2
+_realname=mu
+_date="`date +%Y-%m-%d@%H-%M-%S`"
+pkgname=${_realname}-git-${_date}
+pkgver=r4854.17f38dc4
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
 arch=('i686' 'x86_64')
@@ -9,22 +11,24 @@ groups=('net-utils')
 license=('GPL-3.0')
 url="https://www.djcbsoftware.nl/code/mu/"
 depends=(xapian-core libiconv)
-makedepends=(diffutils git emacs glib2-devel xapian-core gmime3-devel libiconv-devel)
-_commit=f62b4e534a7ef2acea3d87c54f7b4f19cec01afd  # tags/1.2^0
-source=("git+https://github.com/djcb/mu#commit=$_commit")
-#curl -fsSLo mu-1.2.0.tar.xz https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz
+makedepends=(git emacs glib2-devel xapian-core gmime3-devel libiconv-devel)
+source=("git+https://github.com/djcb/mu")
 sha256sums=('SKIP')
 
+pkgver() {
+  cd "${srcdir}"/${_realname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
 build() {
-    cd "${srcdir}"/${pkgname}
-    patch -p0 < ../../mu-1.2.patch
+    cd "${srcdir}"/${_realname}
     chmod +x ./autogen.sh
     ./autogen.sh
     make
 }
 
 package() {
-    cd "${srcdir}"/${pkgname}
+    cd "${srcdir}"/${_realname}
     make DESTDIR="${pkgdir}" install
     install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }

@@ -21,7 +21,7 @@ Make sure both are installed before attempting to build any package:
 
     pacman -S --needed base-devel msys2-devel
     cd ${package-name}
-    makepkg
+    makepkg -s
 
 To install the built package(s).
 
@@ -29,5 +29,5 @@ To install the built package(s).
 
 ## License
 
-MSYS2-packages is licensed under BSD 3-Clause "New" or "Revised" License.
+MSYS2-packages-unofficial is licensed under BSD 3-Clause "New" or "Revised" License.
 A full copy of the license is provided in [LICENSE](LICENSE).

@@ -1,3 +1,22 @@
+# ignore everything
+# *
+
+# white list
+# !.gitignore
+# !/*/PKGBUILD
+# !/*/PKGBUILD*
+# !/*/PKGBUILD-*
+# !/*/PKGBUILD-git
+
+# !*.yaml
+# !ci-build.sh
+# !ci-library.sh
+# LICENSE
+# !README.*
+# !*.md
+# !*.org
+# !*.patch
+
 *.tar.xz
 *.tar.gz
 *.tar.bz2
@@ -8,8 +27,15 @@
 *.asc
 *.log
 *.log.[0-9]*
+*.exe
+*.lib
+*.o
+
 */src/
 */pkg/
+.git/
+src/
+pkg/
 
 # for git packages
 FETCH_HEAD
@@ -20,3 +46,5 @@ description
 info/
 objects/
 packed-refs
+
+
