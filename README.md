@@ -2,8 +2,8 @@
 
 
 [![Gitter chat][1]][2]&nbsp;&nbsp;
-[![AppVeyor status][3]][4]&nbsp;&nbsp;
-[![Azure status][5]][6]&nbsp;&nbsp;
+<!-- [![AppVeyor status][3]][4]&nbsp;&nbsp; -->
+<!-- [![Azure status][5]][6]&nbsp;&nbsp; -->
 
 [1]: https://badges.gitter.im/msys2/msys2.png
 [2]: https://gitter.im/msys2/msys2
@@ -15,8 +15,8 @@
 
 Package scripts for MSYS2.
 
-To build these, run msys2_shell.cmd then from the bash prompt. Packages from
-the msys2-devel and base-devel groups are implicit build time dependencies.
+To build these, run <label style="color:green">msys2_shell.cmd</label> then from the bash prompt. Packages from
+the **msys2-devel** and **base-devel** groups are implicit build time dependencies.
 Make sure both are installed before attempting to build any package:
 
     pacman -S --needed base-devel msys2-devel
@@ -28,7 +28,8 @@ To install the built package(s).
     pacman -U ${package-name}*.pkg.tar.xz
     
 Example
-    [Example](mu/README.org)
+
+    [build mu](mu/README.org)
 
 ## License
 
