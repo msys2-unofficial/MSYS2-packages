@@ -1,0 +1,26 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+pkgname=gmime3-devel
+pkgver=3.2.6
+pkgrel=1
+pkgdesc="The GMime package contains a set of utilities for parsing and creating messages using the Multipurpose Internet Mail Extension (MIME) as defined by the applicable RFCs."
+arch=('i686' 'x86_64')
+url=" http://oligarchy.co.uk"
+license=('custom')
+depends=('glib2-devel' 'libgpg-error-devel')
+source=(http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.6.tar.xz)
+md5sums=('656548dc431004d1ebf95e5d0bb4b9c8')
+
+build() {
+    cd "gmime-3.2.6"
+
+    ./configure --prefix=/usr    \
+                --disable-static
+    make
+}
+
+package() {
+    cd "${srcdir}/gmime-3.2.6"
+    make DESTDIR="${pkgdir}" install
+    install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}

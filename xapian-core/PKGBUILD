@@ -1,0 +1,60 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+pkgname=xapian-core
+# epoch=1
+pkgver=1.4.15
+pkgrel=1
+pkgdesc='Open source search engine library.'
+arch=('i686' 'x86_64')
+url='https://www.xapian.org/'
+license=('GPL')
+depends=('libutil-linux-devel' 'zlib-devel')
+makedepends=(gcc gcc-libs make libtool autoconf automake)
+# xapian config requires libxapian.la
+options=('libtool')
+source=("https://oligarchy.co.uk/xapian/${pkgver}/${pkgname}-${pkgver}.tar.xz")
+#{,.asc})
+sha512sums=('f28209acae12a42a345382668f7f7da7a2ce5a08362d0e2af63c9f94cb2adca95366499a7afa0bd9008fbfcca4fd1f2c9221e594fc2a2c740f5899e9f03ecad3')
+
+# 1.4.14
+# sha512sums=('c08c9abe87e08491566b7cfa8cda9e2a80e4959a647428b6d82bce7af1c967b4cb463607ffb8976372a980c163923ced36117a66e0b5a1f35659393def3d371b')
+            # 'SKIP')
+# validpgpkeys=('08E2400FF7FE8FEDE3ACB52818147B073BAD2B07') # Olly Betts <olly@debian.org>
+
+build() {
+    cd ${pkgname}-${pkgver}
+    ./configure \
+        --prefix=/usr
+    make
+}
+
+package() {
+    cd ${pkgname}-${pkgver}
+    make DESTDIR="${pkgdir}" install
+}
+
+# pkgname=xapian-core-devel
+# pkgver=1.4.14
+# pkgrel=1
+# pkgdesc="A commandline option parser"
+# arch=('i686' 'x86_64')
+# url=" http://oligarchy.co.uk"
+# license=('custom')
+# depends=('libutil-linux-devel')
+# source=(http://oligarchy.co.uk/xapian/xapian-core-${pkgver}.tar.xz)
+# md5sums=('714b02c306a5f11dea035da70462c288')
+
+# build() {
+#     cd "${srcdir}/xapian-core-${pkgver}"
+
+#     ./configure --prefix=/usr    \
+    #                 --disable-static \
+    #                 --docdir=/usr/share/doc/xapian-core-1.4.14
+#     make
+# }
+
+# package() {
+#     cd "${srcdir}/xapian-core-${pkgver}"
+#     make DESTDIR="${pkgdir}" install
+#     install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+# }
