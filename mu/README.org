@@ -5,17 +5,18 @@
 #+OPTIONS: toc:nil creator:nil author:nil email:nil timestamp:nil html-postamble:nil
 #+TODO: TODO DOING DONE
 
+[[https://raw.githubusercontent.com/msys2-unofficial/MSYS2-packages/master/mu/msys2.png][mu]]
+
 *** 1) install makepkg tool
 pacman -S base-devel msys-devel gcc git
 
 *** 2) clone packages repo
 #+BEGIN_SRC 
-mkdir -p ~/pkgs
-cd ~/pkgs/
+cd ~
 git clone https://github.com/msys2-unofficial/MSYS2-packages.git --depth=1
 #+END_SRC
 
-*** 3) install *mu* deps
+*** 3) install *mu* depends
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/xapian-core
 makepkg -s
@@ -26,7 +27,7 @@ makepkg -s
 pacman -U gmime3-devel-3.2.6-1-x86_64.pkg.tar.xz
 #+END_SRC
 
-*** 4) install *mu*
+*** 4) build and install *mu*
 #+BEGIN_SRC 
 cd ~/MSYS2-packages/mu
 #+END_SRC
