@@ -21,11 +21,14 @@ Make sure both are installed before attempting to build any package:
 
     pacman -S --needed base-devel msys2-devel
     cd ${package-name}
-    makepkg -s
+    makepkg -sf
 
 To install the built package(s).
 
     pacman -U ${package-name}*.pkg.tar.xz
+    
+Example
+    [Example](mu/README.org)
 
 ## License
 
