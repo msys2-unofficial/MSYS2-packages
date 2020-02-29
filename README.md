@@ -12,7 +12,7 @@
 [5]: https://dev.azure.com/msys2/mingw/_apis/build/status/msys2.MSYS2-packages?branchName=master&svg=true
 [6]: https://dev.azure.com/msys2/mingw/_build/latest?definitionId=5&branchName=master
 
-<img src="https://www.msys2.org/7_msys2-install-freely.png" alt="MSYS2" title="it's cool!" />
+<img src="https://raw.githubusercontent.com/msys2-unofficial/MSYS2-packages/master/msys2.png" alt="MSYS2" title="it's cool!" />
  
 Package scripts for MSYS2.
 
