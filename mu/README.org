@@ -30,23 +30,23 @@ pacman -U gmime3-devel-3.2.6-1-x86_64.pkg.tar.xz
 #+END_SRC
 
 *** 4) make and install *mu*
-option 1: *Stable* version (1.2)
+option 1: *Development* version (git master)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sf
+pacman -U mu-git-20200302-x86_64.pkg.tar.xz
+#+END_SRC
+
+option 2: *Stable* version (1.2)
+#+BEGIN_SRC sh
+cd ~/MSYS2-packages/mu
+makepkg -sfp PKGBUILD-1.2
 pacman -U mu-1.2-x86_64.pkg.tar.xz
 #+END_SRC
 
-option 2: *Beta* version (1.3.9 2020-02-29)
+option 3: *Beta* version (1.3.9 2020-02-29)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sfp PKGBUILD-beta
-pacman -U mu-beta-2020-02-29-r4854.17f38dc4-1-x86_64.pkg.tar.xz
-#+END_SRC
-
-option 3: *Development* version (git master)
-#+BEGIN_SRC sh
-cd ~/MSYS2-packages/mu
-makepkg -sfp PKGBUILD-git
-pacman -U mu-git-2020-03-01-r4854.17f38dc4-1-x86_64.pkg.tar.xz
+pacman -U mu-beta-20200302-x86_64.pkg.tar.xz
 #+END_SRC

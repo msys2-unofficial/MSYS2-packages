@@ -1,9 +1,9 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
 _realname=mu
-_date="`date +%Y-%m-%d@%H-%M-%S`"
-pkgname=${_realname}-git-${_date}
-pkgver=r4854.17f38dc4
+# _date="`date +%Y-%m-%d@%H-%M-%S`"
+pkgname=${_realname}-git #-${_date}
+pkgver=20200302
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
 arch=('i686' 'x86_64')
