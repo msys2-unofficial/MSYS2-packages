@@ -1,0 +1,36 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+_realname=isync
+# _date="`date +%Y-%m-%d`"
+pkgname=${_realname}-git #-${_date}
+pkgver=20191003
+pkgrel=1
+pkgdesc="isync is a command line application which synchronizes mailboxes."
+arch=('i686' 'x86_64')
+groups=('net-utils')
+license=('GPL-2.0')
+url="http://isync.sourceforge.net/"
+depends=('openssl' 'libsasl' 'zlib' 'db')
+makedepends=('openssl-devel' 'libsasl-devel' 'zlib-devel' 'libdb')
+source=("git+https://git.code.sf.net/p/isync/isync")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}"/${_realname}
+  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git log -1 --format="%cd" --date=short | sed 's|-||g'
+}
+
+build() {
+    cd "${srcdir}"/${_realname}
+    chmod +x ./autogen.sh
+    ./autogen.sh
+     ./configure --prefix=/usr
+    make
+}
+
+package() {
+    cd "${srcdir}"/${_realname}
+    make DESTDIR="${pkgdir}" install
+    install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
