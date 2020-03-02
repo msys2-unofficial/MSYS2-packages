@@ -1,7 +1,7 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
 _realname=mu
-pkgname=${_realname}-beta-2020-02-29
+pkgname=${_realname}-beta
 pkgver=r4854.17f38dc4
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
@@ -17,7 +17,8 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}"/${_realname}
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git log -1 --format="%cd" --date=short | sed 's|-||g'
 }
 
 build() {
