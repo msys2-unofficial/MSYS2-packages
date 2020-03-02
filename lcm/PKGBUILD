@@ -3,7 +3,7 @@
 _realname=lcm
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20200110
+pkgver="20200110"
 pkgrel=1
 pkgdesc="LCM is a set of libraries and tools for message passing and data marshalling, targeted at real-time systems where high-bandwidth and low latency are critical."
 arch=('i686' 'x86_64')
@@ -16,13 +16,12 @@ source=("git+https://github.com/lcm-proj/lcm.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "${srcdir}"/${_realname}
-  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  git log -1 --format="%cd" --date=short | sed 's|-||g'
+    cd "${srcdir}"/${_realname}
+    # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    git log -1 --format=\"%cd\" --date=short | sed 's|-||g'
 }
 
 build() {
-    # mkdir -p "${srcdir}"/${_realname}/build
     cd "${srcdir}"/${_realname}
     cmake . \
           -DCMAKE_INSTALL_PREFIX=/usr \
@@ -39,7 +38,6 @@ build() {
 
 package() {
     cd "${srcdir}"/${_realname}
-    # make DESTDIR="${pkgdir}" install
-    make DESTDIR="${pkgdir}" preinstall
+    make DESTDIR="${pkgdir}" install
     install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
