@@ -1,0 +1,45 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+_realname=lcm
+# _date="`date +%Y-%m-%d@%H-%M-%S`"
+pkgname=${_realname}-git #-${_date}
+pkgver=20200110
+pkgrel=1
+pkgdesc="LCM is a set of libraries and tools for message passing and data marshalling, targeted at real-time systems where high-bandwidth and low latency are critical."
+arch=('i686' 'x86_64')
+groups=('libraries')
+license=('LGPL-2.1')
+url="http://lcm-proj.github.io/"
+depends=()
+makedepends=('git' 'ninja' 'cmake' 'glib2-devel')
+source=("git+https://github.com/lcm-proj/lcm.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}"/${_realname}
+  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git log -1 --format="%cd" --date=short | sed 's|-||g'
+}
+
+build() {
+    # mkdir -p "${srcdir}"/${_realname}/build
+    cd "${srcdir}"/${_realname}
+    cmake . \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
+          -DCMAKE_CXX_STANDARD=14 \
+          -DLCM_ENABLE_EXAMPLES=off \
+          -DLCM_ENABLE_JAVA=off \
+          -DLCM_ENABLE_PYTHON=off \
+          -DLCM_ENABLE_LUA=off \
+          -DLCM_ENABLE_GO=off
+    cmake --build . # --use-stderr --config Release --target install
+    make
+}
+
+package() {
+    cd "${srcdir}"/${_realname}
+    # make DESTDIR="${pkgdir}" install
+    make DESTDIR="${pkgdir}" preinstall
+    install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
