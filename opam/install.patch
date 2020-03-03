@@ -1,0 +1,46 @@
+--- ./install.sh	2020-01-18 22:25:47.000000000 +0800
++++ ../../install.sh	2020-03-03 15:28:56.999779900 +0800
+@@ -73,26 +73,30 @@
+ if [ ! -x /usr/bin/cygcheck ] ; then
+     echo "warning: your cygwin installation is probably corrupted" >&2
+ else
+-    xtmpf="$(mktemp)"
+-    trap "rm -f \"${xtmpf}\"" EXIT
+-    /usr/bin/cygcheck -dc >"${xtmpf}"
+-    for f in git unzip rsync patch diffutils make m4 ; do
+-        if ! grep -q "^${f} " "$xtmpf" ; then
++    # xtmpf="$(mktemp)"
++    # trap "rm -f \"${xtmpf}\"" EXIT
++    # /usr/bin/cygcheck -dc >"${xtmpf}"
++	# for f in git unzip rsync patch diffutils make m4 ; do
++    for f in git unzip rsync patch diff patch make m4 ; do
++        # if ! grep -q "^${f} " "$xtmpf" ; then
++		if [ ! "`cygcheck $f | head -n 1 | cut -d ' ' -f 1`" == "Found:" ]; then
+             echo "warning: ${f} not installed. opam will not work without it!" >&2
+         fi
+     done
+-    if ! /usr/bin/grep -q "^curl " "$xtmpf" ; then
+-        if ! /usr/bin/grep -q "^wget " "$xtmpf" ; then
++    # if ! /usr/bin/grep -q "^curl " "$xtmpf" ; then
++	if [ ! "`cygcheck curl | head -n 1 | cut -d ' ' -f 1`" == "Found:" ]; then
++        # if ! /usr/bin/grep -q "^wget " "$xtmpf" ; then
++		if [ ! "`cygcheck wget | head -n 1 | cut -d ' ' -f 1`" == "Found:" ]; then
+             echo "warning: neither curl nor wget are installed!" >&2
+             echo "pleas install at least on of them" >&2
+         fi
+     fi
+-    if ! /usr/bin/grep -q "^mingw64-i686-gcc-core" "$xtmpf" ; then
+-        if ! /usr/bin/grep -q "^mingw64-x86_64-gcc-core " "$xtmpf" ; then
+-            echo "please install either mingw64-i686-gcc-core (32-bit) or mingw64-x86_64-gcc-core (64-bit)" >&2
+-            echo "you need a working C compiler to compile native ocaml programs" >&2
+-        fi
+-    fi
++    # if ! /usr/bin/grep -q "^mingw64-i686-gcc-core" "$xtmpf" ; then
++    #     if ! /usr/bin/grep -q "^mingw64-x86_64-gcc-core " "$xtmpf" ; then
++    #         echo "please install either mingw64-i686-gcc-core (32-bit) or mingw64-x86_64-gcc-core (64-bit)" >&2
++    #         echo "you need a working C compiler to compile native ocaml programs" >&2
++    #     fi
++    # fi
+ fi
+ 
+ orig_dir=$dir

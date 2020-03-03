@@ -1,0 +1,24 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+pkgname=opam
+pkgver=2.0.6
+pkgrel=1
+pkgdesc="opam is a source-based package manager for OCaml."
+arch=('i686' 'x86_64')
+groups=('libraries')
+license=('LGPL-2.1')
+url="https://opam.ocaml.org/"
+depends=('curl' 'wget' 'git' 'unzip' 'rsync' 'diffutils' 'make' 'm4')
+makedepends=('bash')
+source=("https://github.com/fdopen/opam-repository-mingw/releases/download/0.0.0.2/opam64.tar.xz")
+sha512sums=('a1512cb16a38818bec9b96bd66813e61c758fa4c2cd1bf1dbdf7c235fad4b425e585b900c6ee330899fb2c386d8149161ae73ac89ded51b445cb8a04a63df249')
+
+build() {
+    cd "${srcdir}/${pkgname}64"
+    patch -p0 < ../../install.patch
+}
+
+package() {
+    cd "${srcdir}/${pkgname}64"
+    ./install.sh --prefix="${pkgdir}"/usr
+}
