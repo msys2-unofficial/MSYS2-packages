@@ -3,7 +3,7 @@
 _realname=json-c
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20200302
+pkgver=20200310
 pkgrel=1
 pkgdesc="JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C"
 arch=('i686' 'x86_64')
