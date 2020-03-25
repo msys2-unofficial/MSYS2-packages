@@ -1,7 +1,7 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
-pkgname=('gmime3' 'gmime3-devel')
-pkgver=3.2.6
+pkgname=gmime3
+pkgver=3.2.7
 pkgrel=1
 pkgdesc="The GMime package contains a set of utilities for parsing and creating messages using the Multipurpose Internet Mail Extension (MIME) as defined by the applicable RFCs."
 arch=('i686' 'x86_64')
@@ -9,10 +9,10 @@ groups=('libraries')
 license=('GPL')
 url="https://github.com/jstedfast/gmime"
 depends=(glib2-devel libiconv-devel zlib-devel libgpg-error-devel)
-makedepends=(gcc gcc-libs make libtool autoconf automake)
+makedepends=(gcc gcc-libs make libtool autoconf automake pkg-config)
 provides=(libgmime-3.0.so)
 source=(http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-${pkgver}.tar.xz)
-md5sums=('656548dc431004d1ebf95e5d0bb4b9c8')
+sha256sums=('2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44')
 
 # depends=(glib2 gpgme zlib libidn2)
 # makedepends=(gobject-introspection gtk-doc git vala docbook-utils)
@@ -30,19 +30,8 @@ build() {
     make
 }
 
-package_gmime3() {
-    cd "${srcdir}/gmime-3.2.6"
-    make DESTDIR="${pkgdir}" install
-    install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
-}
-
-package_gmime3-devel() {
-    # pkgdesc="zlib headers and libraries"
-    # groups=('development')
-    # options=('staticlibs')  # needed by binutils testsuite
-    # depends=("gmime3=${pkgver}")
-    
-    cd "${srcdir}/gmime-3.2.6"
+package() {
+    cd "${srcdir}/gmime-${pkgver}"
     make DESTDIR="${pkgdir}" install
     install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
