@@ -11,7 +11,7 @@ groups=('net-utils')
 license=('GPL-3.0')
 url="https://www.djcbsoftware.nl/code/mu/"
 depends=(xapian-core libiconv)
-makedepends=(git emacs glib2-devel xapian-core gmime3-devel libiconv-devel)
+makedepends=(git emacs glib2-devel libiconv-devel xapian-core gmime3)
 source=("git+https://github.com/djcb/mu")
 sha256sums=('SKIP')
 
