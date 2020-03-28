@@ -1,0 +1,45 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+_realname=chez
+# _date="`date +%Y-%m-%d@%H-%M-%S`"
+pkgname=${_realname}-git #-${_date}
+pkgver="20200311"
+pkgrel=1
+pkgdesc="Chez Scheme is both a programming language and an implementation of that language, with supporting tools and documentation."
+arch=('i686' 'x86_64')
+groups=('libraries')
+license=('LGPL-2.1')
+url="http://lcm-proj.github.io/"
+depends=()
+makedepends=('git' 'make')
+source=("git+https://github.com/cisco/ChezScheme.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}"/ChezScheme
+    # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    git log -1 --format=\"%cd\" --date=short | sed 's|-||g'
+}
+
+build() {
+    echo "dir1:`pwd`"
+    cp -f ../vs.bat "${srcdir}"/ChezScheme/c
+    cd "${srcdir}"/ChezScheme
+    echo "dir2:`pwd`"
+    # if [ $(grep 'BuildTools' vs.bat | wc -l) -ne 1 ]; then
+        # echo "not BuildTools"
+      # exit 1
+    # fi
+    
+    # sed -i 's/BuildTools/Preview/g' vs.bat
+    ./configure
+    cd a6nt/c
+    ./make.bat
+    cd ..
+    make
+}
+
+package() {
+    cd "${srcdir}"/ChezScheme/a6nt
+    make TempRoot="${pkgdir}" install
+}
