@@ -5,7 +5,7 @@
 #+OPTIONS: toc:nil creator:nil author:nil email:nil timestamp:nil html-postamble:nil
 #+TODO: TODO DOING DONE
 
-[[https://github.com/msys2-unofficial/Resources/msys2.png][file:mu.png]]
+[[https://github.com/msys2-unofficial/Resources/msys2.png][file:mu/mu.png]]
 
 *** 1) install makepkg tool
 #+BEGIN_SRC sh 
