@@ -1,50 +1,18 @@
 # ignore everything
-# *
+*
 
 # white list
-# !.gitignore
-# !/*/PKGBUILD
-# !/*/PKGBUILD*
-# !/*/PKGBUILD-*
-# !/*/PKGBUILD-git
+!.gitignore
+!PKGBUILD
+!PKGBUILD*
+!*.yaml
+!ci-build.sh
+!ci-library.sh
+LICENSE
+!README.*
+!*.md
+!*.org
+!*.patch
 
-# !*.yaml
-# !ci-build.sh
-# !ci-library.sh
-# LICENSE
-# !README.*
-# !*.md
-# !*.org
-# !*.patch
-
-*.tar.xz
-*.tar.gz
-*.tar.bz2
-*.tgz
-*.zip
-*.rar
-*.sig
-*.asc
-*.log
-*.log.[0-9]*
-*.exe
-*.lib
-*.o
-
-*/src/
-*/pkg/
-.git/
-src/
-pkg/
-
-# for git packages
-FETCH_HEAD
-HEAD
-config
-description
-*.sample
-info/
-objects/
-packed-refs
 
 
