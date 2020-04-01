@@ -1,7 +1,7 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
 pkgname=cygutils
-pkgver=1.4.15
+pkgver=1.4.16
 pkgrel=2
 pkgdesc="A collection of simple cygwin utilities"
 arch=('i686' 'x86_64')
@@ -10,14 +10,16 @@ license=('custom')
 depends=('popt')
 makedepends=('gettext-devel' 'libtool')
 source=("http://mirror.bit.edu.cn/cygwin/x86_64/release/cygutils/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
-sha1sums=('85bd85273c20baa1f6d92c374cd15f6aefb8a6b1')
+sha512sums=('b5980a7ae906feb4008315ebd7466d5bb56f987ebef9091970aeb5734a5d4643b60ce156ae2be0f225c57a5291ac2a3aea7a23bb09fa7edc2af2fc039f64b6bc')
 
 build() {
   cd "${srcdir}"
   tar -xf ${pkgname}-${pkgver}-${pkgrel}.src/cygwin-${pkgname}-${pkgver}.tar.bz2
-  cd cygwin-${pkgname}
+  # cd "${srcdir}"/../
+  # patch -p0 < cygutils-1.4.16-2.src.patch
+  cd "${srcdir}"/cygwin-${pkgname}
   ./bootstrap
-  ./configure --prefix=/usr
+  ./configure CFLAGS="-fPIC -mcmodel=large -O2 -g" --prefix=/usr
 
   make
 }
