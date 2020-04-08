@@ -1,0 +1,32 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+_realname=cello
+# _date="`date +%Y-%m-%d@%H-%M-%S`"
+pkgname=${_realname}-git #-${_date}
+pkgver=20200101
+pkgrel=1
+pkgdesc="Cello is a library that brings higher level programming to C."
+arch=('i686' 'x86_64')
+groups=('libraries')
+license=('BSD')
+url="http://libcello.org/"
+depends=()
+makedepends=('git' 'autoconf' 'automake' 'libtool')
+source=("git+https://github.com/orangeduck/Cello.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}"/Cello
+  # printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git log -1 --format="%cd" --date=short | sed 's|-||g'
+}
+
+build() {
+    cd "${srcdir}"/Cello
+    make
+}
+
+package() {
+    cd "${srcdir}"/Cello
+    make PREFIX="${pkgdir}/usr" install
+}
