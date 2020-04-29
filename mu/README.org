@@ -34,12 +34,12 @@ option 1: *Development* version (git master)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sf
-pacman -U mu-git-20200420-1-x86_64.pkg.tar.xz
+pacman -U mu-git-20200429-1-x86_64.pkg.tar.xz
 #+END_SRC
 
-option 2: *Stable* version (1.4.1)
+option 2: *Stable* version (1.4.3)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
-makepkg -sfp PKGBUILD-1.4.1
+makepkg -sfp PKGBUILD-1.4.3
 pacman -U mu-1.2-x86_64.pkg.tar.xz
 #+END_SRC
