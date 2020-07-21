@@ -4,15 +4,17 @@
 # white list
 !.gitignore
 !PKGBUILD
-!PKGBUILD*
+!/*/PKGBUILD
+!/*/PKGBUILD*
 !*.yaml
 !ci-build.sh
 !ci-library.sh
-LICENSE
+!LICENSE
 !README.*
-!*.md
-!*.org
-!*.patch
+!/*/README.*
+!/*/*.md
+!/*/*.org
+!/*/*.patch
 
 
 
