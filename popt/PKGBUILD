@@ -14,7 +14,7 @@ license=('custom')
 # source=(ftp://anduin.linuxfromscratch.org/BLFS/${pkgname}/${pkgname}-${pkgver}.tar.gz)
 # md5sums=('3743beefa3dd6247a73f8f7a32c14c33')
 
-# cygwin
+# Cygwin
 source=("http://mirror.bit.edu.cn/cygwin/x86_64/release/popt/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
 sha512sums=('dad706bda89bb11c17ff50b83e84075f7b8fff9a989d24d9cd319b5608720b57541ebbc11f297140b6e24782dfd3fb9df1f1020b4eb7dd5ed6fc6508572e6313')
 
@@ -32,7 +32,7 @@ sha512sums=('dad706bda89bb11c17ff50b83e84075f7b8fff9a989d24d9cd319b5608720b57541
 #   make
 # }
 
-# cygwin source
+# Cygwin source
 build() {
     cd "${srcdir}"
     tar -zxvf ${pkgname}-${pkgver}-${pkgrel}.src/${pkgname}-${pkgver}.tar.gz
