@@ -1,10 +1,13 @@
-#+TITLE:     build
+#+TITLE:     MU
 #+AUTHOR:    damon-kwok
 #+EMAIL:     damon-kwok@outlook.com
 #+DATE:      2020-03-01
 #+OPTIONS: toc:nil creator:nil author:nil email:nil timestamp:nil html-postamble:nil
 #+TODO: TODO DOING DONE
 
+[![Sponsor](https://img.shields.io/badge/Support%20Me-%F0%9F%92%97-ff69b4.svg)](https://www.patreon.com/DamonKwok)
+
+- Screenshot
 [[https://github.com/msys2-unofficial/MSYS2-packages/blob/master/mu/mu.png][file:mu.png]]
 
 *** 1) install makepkg tool
@@ -34,12 +37,12 @@ option 1: *Development* version (git master)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sf
-pacman -U mu-git-20200429-1-x86_64.pkg.tar.xz
+pacman -U mu-git-20200713-1-x86_64.pkg.tar.xz
 #+END_SRC
 
-option 2: *Stable* version (1.4.3)
+option 2: *Stable* version (1.4.10)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
-makepkg -sfp PKGBUILD-1.4.3
-pacman -U mu-1.2-x86_64.pkg.tar.xz
+makepkg -sfp PKGBUILD-1.4.10
+pacman -U mu-1.4.10-x86_64.pkg.tar.xz
 #+END_SRC
