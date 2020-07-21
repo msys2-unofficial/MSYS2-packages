@@ -1,7 +1,7 @@
 # MSYS2-packages-unofficial
 
-
-[![Gitter chat][1]][2]&nbsp;&nbsp;
+[![Sponsor](https://img.shields.io/badge/Support%20Me-%F0%9F%92%97-ff69b4.svg)](https://www.patreon.com/DamonKwok)
+<!-- [![Gitter chat][1]][2]&nbsp;&nbsp; -->
 <!-- [![AppVeyor status][3]][4]&nbsp;&nbsp; -->
 <!-- [![Azure status][5]][6]&nbsp;&nbsp; -->
 
