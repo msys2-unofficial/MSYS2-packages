@@ -3,7 +3,7 @@
 _realname=mu
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20200429
+pkgver=20200713
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
 arch=('i686' 'x86_64')
