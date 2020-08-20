@@ -25,11 +25,11 @@ git clone https://github.com/msys2-unofficial/MSYS2-packages.git --depth=1
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/xapian-core
 makepkg -s
-pacman -U xapian-core-1.4.16-1-x86_64.pkg.tar.xz
+pacman -U xapian-core-1.4.16-1-x86_64.pkg.tar.zst
 
 cd ~/MSYS2-packages/gmime3
 makepkg -s
-pacman -U gmime3-devel-3.2.7-1-x86_64.pkg.tar.xz
+pacman -U gmime3-devel-3.2.7-1-x86_64.pkg.tar.zst
 #+END_SRC
 
 *** 4) make and install *mu*
@@ -37,12 +37,12 @@ option 1: *Development* version (git master)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sf
-pacman -U mu-git-20200713-1-x86_64.pkg.tar.xz
+pacman -U mu-git-20200815-1-x86_64.pkg.tar.zst
 #+END_SRC
 
 option 2: *Stable* version (1.4.10)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sfp PKGBUILD-1.4.10
-pacman -U mu-1.4.10-x86_64.pkg.tar.xz
+pacman -U mu-1.4.10-x86_64.pkg.tar.zst
 #+END_SRC
