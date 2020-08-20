@@ -3,7 +3,7 @@
 _realname=isync
 # _date="`date +%Y-%m-%d`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20191003
+pkgver=20200804
 pkgrel=1
 pkgdesc="isync is a command line application which synchronizes mailboxes."
 arch=('i686' 'x86_64')
