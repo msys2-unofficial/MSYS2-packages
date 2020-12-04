@@ -13,7 +13,7 @@ url="https://www.djcbsoftware.nl/code/mu/"
 # depends=(xapian-core libiconv libguile guile gmp libgc libcrypt)
 # makedepends=(git emacs glib2-devel libiconv-devel libguile-devel gmp-devel libgc-devel libcrypt-devel xapian-core gmime3)
 depends=(xapian-core libiconv diffutils)
-makedepends=(git emacs glib2-devel libiconv-devel xapian-core gmime3)
+makedepends=(git emacs glib2-devel libiconv-devel xapian-core gmime3 libreadline-devel)
 source=("git+https://github.com/djcb/mu")
 sha256sums=('SKIP')
 
