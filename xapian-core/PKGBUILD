@@ -22,8 +22,8 @@ sha512sums=('f28209acae12a42a345382668f7f7da7a2ce5a08362d0e2af63c9f94cb2adca9536
 
 build() {
     cd ${pkgname}-${pkgver}
-    ./configure \
-        --prefix=/usr
+    autoreconf --install -f --verbose
+    ./configure --prefix=/usr --disable-dependency-tracking
     make
 }
 

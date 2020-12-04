@@ -24,9 +24,9 @@ sha256sums=('2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44')
 
 build() {
     cd "gmime-${pkgver}"
-
-    ./configure --prefix=/usr
-                # --disable-static
+    patch -p0 < ../../install.patch
+    autoreconf --install -f --verbose
+    ./configure --prefix=/usr --disable-static --enable-shared
     make
 }
 
