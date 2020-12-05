@@ -1,0 +1,11 @@
+--- configure.ac	2020-12-04 16:17:53.305836400 +0100
++++ ../../configure.ac	2020-12-04 16:18:01.969507400 +0100
+@@ -94,7 +94,7 @@
+ AC_MSG_CHECKING([if building for Win32])
+ LIB_EXE_MACHINE_FLAG=X86
+ case "$host" in
+-  *-*-mingw*)
++  *-*-mingw*|*-*-msys*)
+     platform_win32="yes"
+     native_win32="yes"
+     case "$host" in
