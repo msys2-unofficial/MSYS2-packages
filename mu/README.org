@@ -29,7 +29,7 @@ pacman -U xapian-core-1.4.16-1-x86_64.pkg.tar.zst
 
 cd ~/MSYS2-packages/gmime3
 makepkg -s
-pacman -U gmime3-devel-3.2.7-1-x86_64.pkg.tar.zst
+pacman -U gmime3-3.2.7-1-x86_64.pkg.tar.zst
 #+END_SRC
 
 *** 4) make and install *mu*
@@ -44,5 +44,5 @@ option 2: *Stable* version (1.4.10)
 #+BEGIN_SRC sh
 cd ~/MSYS2-packages/mu
 makepkg -sfp PKGBUILD-1.4.10
-pacman -U mu-1.4.10-x86_64.pkg.tar.zst
+pacman -U mu-1.4.10-1-x86_64.pkg.tar.zst
 #+END_SRC
