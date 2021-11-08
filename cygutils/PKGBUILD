@@ -2,7 +2,7 @@
 
 pkgname=cygutils
 pkgver=1.4.16
-pkgrel=2
+pkgrel=8
 pkgdesc="A collection of simple cygwin utilities"
 arch=('i686' 'x86_64')
 url="http://cygutils.fruitbat.org/cygutils-package/index.html"
@@ -10,7 +10,7 @@ license=('custom')
 depends=('popt')
 makedepends=('gettext-devel' 'libtool')
 source=("https://mirrors.ustc.edu.cn/cygwin/x86_64/release/cygutils/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
-sha512sums=('b5980a7ae906feb4008315ebd7466d5bb56f987ebef9091970aeb5734a5d4643b60ce156ae2be0f225c57a5291ac2a3aea7a23bb09fa7edc2af2fc039f64b6bc')
+sha512sums=('925c3b4e5efaa1623f97a066493d0c5d9098bfe0ae5e363e97ad19cc79e05539c9869c0ed4892af9a0c3b869a0e404271c9815bf75f0d0ef85108a269bb50192')
 
 build() {
   cd "${srcdir}"
