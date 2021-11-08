@@ -1,8 +1,8 @@
 # Maintainer: damon-kwok <damon-kwok@outlook.com>
 
 pkgname=popt
-pkgver=1.16
-pkgrel=2
+pkgver=1.18
+pkgrel=1
 pkgdesc="A commandline option parser"
 arch=('i686' 'x86_64')
 url="ftp://anduin.linuxfromscratch.org"
@@ -16,7 +16,7 @@ license=('custom')
 
 # Cygwin
 source=("http://mirrors.ustc.edu.cn/cygwin/x86_64/release/popt/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
-sha512sums=('dad706bda89bb11c17ff50b83e84075f7b8fff9a989d24d9cd319b5608720b57541ebbc11f297140b6e24782dfd3fb9df1f1020b4eb7dd5ed6fc6508572e6313')
+sha512sums=('e208d56535cc9a5707561c5bb0870e54d0c6f000a21c1e77a63a5dd0a468d8f00e509badb8a74070705aa4e0682f07fa2659c99a621c2f06b4d27542b09fa0be')
 
 # LFS source
 # build() {
