@@ -9,7 +9,7 @@ url="http://cygutils.fruitbat.org/cygutils-package/index.html"
 license=('custom')
 depends=('popt')
 makedepends=('gettext-devel' 'libtool')
-source=("http://mirror.bit.edu.cn/cygwin/x86_64/release/cygutils/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
+source=("https://mirrors.ustc.edu.cn/cygwin/x86_64/release/cygutils/${pkgname}-${pkgver}-${pkgrel}-src.tar.xz")
 sha512sums=('b5980a7ae906feb4008315ebd7466d5bb56f987ebef9091970aeb5734a5d4643b60ce156ae2be0f225c57a5291ac2a3aea7a23bb09fa7edc2af2fc039f64b6bc')
 
 build() {
