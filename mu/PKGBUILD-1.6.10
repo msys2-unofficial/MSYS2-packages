@@ -1,0 +1,29 @@
+# Maintainer: damon-kwok <damon-kwok@outlook.com>
+
+pkgname=mu
+pkgver=1.6.10
+pkgrel=1
+pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
+arch=('i686' 'x86_64')
+groups=('net-utils')
+license=('GPL-3.0')
+url="https://www.djcbsoftware.nl/code/mu/"
+depends=(xapian-core libiconv diffutils)
+makedepends=(git emacs glib2-devel libiconv-devel xapian-core gmime3)
+_commit=77f10379cb42e3a41805efed8a15c7c2db46fb68 #tag: 1.6.10
+source=("git+https://github.com/djcb/mu#commit=$_commit")
+#curl -fsSLo mu-${pkgver}.tar.xz https://github.com/djcb/mu/releases/download/${pkgver}/mu-${pkgver}.tar.xz
+sha256sums=('SKIP')
+
+build() {
+    cd "${srcdir}"/${pkgname}
+    chmod +x ./autogen.sh
+    ./autogen.sh
+    make
+}
+
+package() {
+    cd "${srcdir}"/${pkgname}
+    make DESTDIR="${pkgdir}" install
+    install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
