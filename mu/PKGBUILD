@@ -3,7 +3,7 @@
 _realname=mu
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20210303
+pkgver=20221003
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
 arch=('i686' 'x86_64')
@@ -13,7 +13,8 @@ url="https://www.djcbsoftware.nl/code/mu/"
 # depends=(xapian-core libiconv libguile guile gmp libgc libcrypt)
 # makedepends=(git emacs glib2-devel libiconv-devel libguile-devel gmp-devel libgc-devel libcrypt-devel xapian-core gmime3)
 depends=(xapian-core libiconv diffutils)
-makedepends=(git emacs glib2-devel libiconv-devel xapian-core gmime3 libreadline-devel)
+makedepends=(cmake meson pkg-config autogen autotools git emacs glib2-devel libiconv-devel xapian-core gmime3 libreadline-devel)
+options=(guile)
 source=("git+https://github.com/djcb/mu")
 sha256sums=('SKIP')
 
@@ -25,6 +26,8 @@ pkgver() {
 
 build() {
     cd "${srcdir}"/${_realname}
+    sed -i 's/c++17/gnu++17/g' meson.build
+    sed -i 's/-Wno-#warnings/-D_GNU_SOURCE/g' meson.build
     chmod +x ./autogen.sh
     ./autogen.sh
     make
