@@ -3,14 +3,14 @@
 _realname=isync
 # _date="`date +%Y-%m-%d`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20210221
+pkgver=20220709
 pkgrel=1
 pkgdesc="isync is a command line application which synchronizes mailboxes."
 arch=('i686' 'x86_64')
 groups=('net-utils')
 license=('GPL-2.0')
 url="http://isync.sourceforge.net/"
-depends=('openssl' 'libsasl' 'zlib' 'db')
+depends=('autotools' 'autogen' 'libtool' 'openssl' 'libsasl' 'zlib' 'db')
 makedepends=('openssl-devel' 'libsasl-devel' 'zlib-devel' 'libdb')
 source=("git+https://git.code.sf.net/p/isync/isync")
 sha256sums=('SKIP')
