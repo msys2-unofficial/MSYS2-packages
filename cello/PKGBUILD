@@ -3,7 +3,7 @@
 _realname=cello
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20200101
+pkgver=20210415
 pkgrel=1
 pkgdesc="Cello is a library that brings higher level programming to C."
 arch=('i686' 'x86_64')
