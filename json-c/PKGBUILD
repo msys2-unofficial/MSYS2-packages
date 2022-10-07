@@ -3,7 +3,7 @@
 _realname=json-c
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20200310
+pkgver=20220913
 pkgrel=1
 pkgdesc="JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C"
 arch=('i686' 'x86_64')
@@ -11,7 +11,7 @@ groups=('libraries')
 license=('comstum')
 url="http://json-c.github.io/json-c/"
 depends=()
-makedepends=('git' 'autoconf' 'automake' 'libtool')
+makedepends=(git cmake doxygen)
 source=("git+https://github.com/json-c/json-c.git")
 sha256sums=('SKIP')
 
@@ -23,9 +23,7 @@ pkgver() {
 
 build() {
     cd "${srcdir}"/${_realname}
-    chmod +x ./autogen.sh
-    ./autogen.sh
-    ./configure --prefix=/usr
+    cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
     make
 }
 
