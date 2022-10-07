@@ -2,7 +2,7 @@
 
 pkgname=xapian-bindings
 # epoch=1
-pkgver=1.4.18
+pkgver=1.4.21
 pkgrel=1
 pkgdesc='Open source search engine library, bindings.'
 arch=('i686' 'x86_64')
@@ -14,7 +14,7 @@ makedepends=(gcc gcc-libs make libtool autoconf automake)
 options=('libtool')
 source=("https://oligarchy.co.uk/xapian/${pkgver}/${pkgname}-${pkgver}.tar.xz")
 #{,.asc})
-sha256sums=('FE52064E90D202F7819130AE3AD013C8B2B9CB517AD9FD607CF41D0110C5F18F')
+sha256sums=('e7bf1e4982b91f841289d19214021d88371ca2a6c7304df59049d7da78b83ced')
 # validpgpkeys=('08E2400FF7FE8FEDE3ACB52818147B073BAD2B07') # Olly Betts <olly@debian.org>
 
 build() {
