@@ -3,7 +3,7 @@
 _realname=mu
 # _date="`date +%Y-%m-%d@%H-%M-%S`"
 pkgname=${_realname}-git #-${_date}
-pkgver=20221003
+pkgver=20221009
 pkgrel=1
 pkgdesc="'mu' is a tool for dealing with e-mail messages stored in the Maildir-format."
 arch=('i686' 'x86_64')
@@ -15,7 +15,7 @@ url="https://www.djcbsoftware.nl/code/mu/"
 depends=(xapian-core libiconv diffutils)
 makedepends=(cmake meson pkg-config autogen autotools git emacs glib2-devel libiconv-devel xapian-core gmime3 libreadline-devel)
 options=(guile)
-source=("git+https://github.com/djcb/mu")
+source=("git+https://github.com/damon-kwok/mu")
 sha256sums=('SKIP')
 
 pkgver() {
